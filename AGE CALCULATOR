@@ -1,0 +1,21 @@
+import java.time.Period;
+import java.util.Scanner;
+class Calculateage {
+    public static void main(String[] args) {
+        System.out.println("Enter your DOB in YYYY-MM-DD Format"); 
+        Scanner sc=new Scanner(System.in);
+        String Dob=sc.nextLine();
+        sc.close();
+        LocalDate Bd=LocalDate.parse(Dob);
+        System.out.println("your age :" + age(Bd));
+    }
+public static int age (LocalDate Bd){
+    LocalDate curDate=LocalDate.now();
+    if (Bd!=null && curDate!=null){
+        return Period.between(Bd,curDate).getYears();
+        }
+        else{
+            return 0;
+        }
+}
+}
